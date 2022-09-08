@@ -5,4 +5,4 @@ set(CMAKE_BINARY_DIR ./build)
 
 aux_source_directory(./source SOURCE)
 add_library(ConsoleGraph STATIC ${SOURCE})
-target_include_directories(ConsoleGraph PRIVATE ./include)
+target_include_directories(ConsoleGraph PUBLIC ./include)
