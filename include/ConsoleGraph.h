@@ -1,4 +1,4 @@
-//Класс отрисовки графиков в консоле
+//РљР»Р°СЃСЃ РѕС‚СЂРёСЃРѕРІРєРё РіСЂР°С„РёРєРѕРІ РІ РєРѕРЅСЃРѕР»Рµ
 
 #pragma once
 
@@ -16,28 +16,28 @@ class ConsoleGraph
 {
 private:
 
-	HDC hdc;																			//Объект - реальный экран
-	HPEN Pen;																			//Объект - перо
-	vector<int> Zero_W;																	//Нуль Box
-	vector<int> Zero_G;																	//Нуль внутри Box
+	HDC hdc;																			//РћР±СЉРµРєС‚ - СЂРµР°Р»СЊРЅС‹Р№ СЌРєСЂР°РЅ
+	HPEN Pen;																			//РћР±СЉРµРєС‚ - РїРµСЂРѕ
+	vector<int> Zero_W;																	//РќСѓР»СЊ Box
+	vector<int> Zero_G;																	//РќСѓР»СЊ РІРЅСѓС‚СЂРё Box
 
-	void Scale_correct(double*, double*, double*, double*);								//Единое масштабирование
-	void Graph_type(int,int);															//Тип графика (линия по умолчанию)
+	void Scale_correct(double*, double*, double*, double*);								//Р•РґРёРЅРѕРµ РјР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ
+	void Graph_type(int,int);															//РўРёРї РіСЂР°С„РёРєР° (Р»РёРЅРёСЏ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ)
 
 public:
 
 	int Height;
 	int Weight;
-	int Frame;																			//Расстояние от Box до Графика
+	int Frame;																			//Р Р°СЃСЃС‚РѕСЏРЅРёРµ РѕС‚ Box РґРѕ Р“СЂР°С„РёРєР°
 	string Zero = "None";
-	string Type = "Line";																//Тип графика: "Dot"/"Line"
-	string Scale = "Different";															//Вид масштабирования: "Different"/"Even"
-	int Part = 1;																		//Отображаемые четверти
-	vector<int> Number;																	//Количество графиков в форме {Row,Column}
+	string Type = "Line";																//РўРёРї РіСЂР°С„РёРєР°: "Dot"/"Line"
+	string Scale = "Different";															//Р’РёРґ РјР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёСЏ: "Different"/"Even"
+	int Part = 1;																		//РћС‚РѕР±СЂР°Р¶Р°РµРјС‹Рµ С‡РµС‚РІРµСЂС‚Рё
+	vector<int> Number;																	//РљРѕР»РёС‡РµСЃС‚РІРѕ РіСЂР°С„РёРєРѕРІ РІ С„РѕСЂРјРµ {Row,Column}
 
-	ConsoleGraph(int = 750, int = 450, vector<int> = {1,1});							//Конструктор(Weight,Height,{Row,Column})
-	ConsoleGraph& plot(tuple<vector<double>, vector<double>>, int = 1, int = 1);		//Построить({x,y},Row,Column)
-	void Box(int, int);																	//Коробка графика(Row,Column)
+	ConsoleGraph(int = 750, int = 450, vector<int> = {1,1});							//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ(Weight,Height,{Row,Column})
+	ConsoleGraph& plot(tuple<vector<double>, vector<double>>, int = 1, int = 1);		//РџРѕСЃС‚СЂРѕРёС‚СЊ({x,y},Row,Column)
+	void Box(int, int);																	//РљРѕСЂРѕР±РєР° РіСЂР°С„РёРєР°(Row,Column)
 
 };
 

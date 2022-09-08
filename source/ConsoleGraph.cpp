@@ -25,7 +25,7 @@ ConsoleGraph& ConsoleGraph::plot(tuple<vector<double>, vector<double>> In, int R
 	vector<int> Zero_g;
 	tie(X_acix, Y_acix) = In;
 
-	Zero_g.push_back(Zero_G[0] + (Column - 1) * Weight / Number[1]);				  //Установка нуля по номеру графика в сетке
+	Zero_g.push_back(Zero_G[0] + (Column - 1) * Weight / Number[1]);				  //РЈСЃС‚Р°РЅРѕРІРєР° РЅСѓР»СЏ РїРѕ РЅРѕРјРµСЂСѓ РіСЂР°С„РёРєР° РІ СЃРµС‚РєРµ
 	Zero_g.push_back(Zero_G[1] - (Number[0] - Row) * Height / Number[0]);
 
 	double Max_X = *max_element(X_acix.begin(), X_acix.end());
@@ -33,23 +33,23 @@ ConsoleGraph& ConsoleGraph::plot(tuple<vector<double>, vector<double>> In, int R
 	double Max_Y = minmax(Y_acix, "max");
 	double Min_Y = minmax(Y_acix, "min");
 
-	Scale_correct(&Min_X,&Max_X,&Min_Y,&Max_Y);									     //Ввод одинакового масштаба для обеих осей
+	Scale_correct(&Min_X,&Max_X,&Min_Y,&Max_Y);									     //Р’РІРѕРґ РѕРґРёРЅР°РєРѕРІРѕРіРѕ РјР°СЃС€С‚Р°Р±Р° РґР»СЏ РѕР±РµРёС… РѕСЃРµР№
 
 	double PPX_unit = abs((Weight / Number[1] - 2*(double)Frame)/(Max_X - Min_X));
 	double PPY_unit = abs((Height / Number[0] - 2*(double)Frame)/(Max_Y - Min_Y));
 	
 	for (unsigned int i = 0; i < X_acix.size(); i++) {
 
-		int x = (int)(Zero_g[0] + (X_acix[i] - Min_X) * PPX_unit);					 //Сдвиг нуля, обеспечивает
-		int y = (int)(Zero_g[1] - (Y_acix[i] - Min_Y) * PPY_unit);					 //отрисовку от края окна
+		int x = (int)(Zero_g[0] + (X_acix[i] - Min_X) * PPX_unit);					 //РЎРґРІРёРі РЅСѓР»СЏ, РѕР±РµСЃРїРµС‡РёРІР°РµС‚
+		int y = (int)(Zero_g[1] - (Y_acix[i] - Min_Y) * PPY_unit);					 //РѕС‚СЂРёСЃРѕРІРєСѓ РѕС‚ РєСЂР°СЏ РѕРєРЅР°
 
-		if (isinf(Y_acix[i]))                                                        //Условие работы с inf
+		if (isinf(Y_acix[i]))                                                        //РЈСЃР»РѕРІРёРµ СЂР°Р±РѕС‚С‹ СЃ inf
 		{ 
 			if (Y_acix[i] < 0) { y = (int)(Zero_W[1] + Row * Height / Number[0] - Frame); }
 			if (Y_acix[i] > 0) { y = (int)(Zero_W[1] + (Row - 1) * Height / Number[0] + Frame); }
 		}
 		
-		if (isnan(Y_acix[i]))                                                        //Условие работы с nan
+		if (isnan(Y_acix[i]))                                                        //РЈСЃР»РѕРІРёРµ СЂР°Р±РѕС‚С‹ СЃ nan
 		{
 			continue;
 		}
